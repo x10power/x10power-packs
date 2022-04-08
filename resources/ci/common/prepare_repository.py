@@ -28,7 +28,7 @@ def prepare_repository():
           #   get package manifest from master branch
           context = ssl._create_unverified_context()
           packageReq = urllib.request.urlopen(packManifestURL, context=context)
-          packageJSON = json.loads(packageReq.read().decode("utf-8"))
+          packageJSON = json.loads(packageReq.read().decode("utf-8-sig"))
           toWrite = [
             "Name: " + packageJSON["name"],
             "By:   " + packageJSON["author"],
