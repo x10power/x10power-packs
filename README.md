@@ -1,4 +1,4 @@
-# mm1s-packs
-MM1's Packs for EmoTracker
+# x10power-packs
+x10power's Packs for EmoTracker
 
-[(Listing)](https://miketrethewey.github.io/mm1s-packs/repository.json)
+[(Listing)](https://x10power.github.io/x10power-packs/repository.json)

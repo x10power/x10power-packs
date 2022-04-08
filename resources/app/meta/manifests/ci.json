@@ -9,11 +9,11 @@
     },
     "common": {
       "repo": {
-        "title": "MM1's Packs",
+        "title": "x10power's Packs",
         "username": "miketrethewey",
-        "repository": "mm1s-packs"
+        "repository": "x10power-packs"
       },
-      "actor": "miketrethewey"
+      "actor": "x10power"
     },
     "git_clean": {
       "excludes": [
