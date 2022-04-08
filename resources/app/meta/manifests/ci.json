@@ -1,0 +1,28 @@
+{
+  "common": {
+    "cleanup": {
+      "nuke": [
+        ".git",
+        ".github",
+        "resources"
+      ]
+    },
+    "common": {
+      "repo": {
+        "title": "MM1's Packs",
+        "username": "miketrethewey",
+        "repository": "mm1s-packs"
+      },
+      "actor": "miketrethewey"
+    },
+    "git_clean": {
+      "excludes": [
+        ".vscode",
+        ".idea",
+        "*.json",
+        "*app*version.*"
+      ],
+      "user_resources": "resources/user*"
+    }
+  }
+}

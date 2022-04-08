@@ -1,0 +1,6 @@
+{
+  "name": "MM1's Packs",
+  "packages": [
+    "https://raw.githubusercontent.com/miketrethewey/averge_pack_mm1/master/manifest.json"
+  ]
+}
