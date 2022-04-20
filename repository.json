@@ -2,24 +2,25 @@
   "name": "x10power's Packs",
   "packages": [
     {
-      "name": "Final Fantasy Mystic Quest Item Tracker",
+      "name": "Final Fantasy Mystic Quest Randomizer Item Tracker",
+      "author": "x10power, Mike Trethewey",
       "game_name": "Final Fantasy Mystic Quest",
+      "flags": [
+        "chathud"
+      ],
       "platform": "snes",
-      "author": "x10power",
+      "documentation_url": "",
       "variants": [
         {
-          "name": "Items-Only"
-        },
-        {
-          "name": "Standard Map",
+          "name": "Items-Only",
           "flags": [
-            "map"
+            "chathud"
           ]
         }
       ],
-      "link": "https://github.com/x10power/ffmq-rando-tracker/releases/download/First/ffmq-rando-tracker.zip",
-      "uid": "ffmq-items",
-      "version": ""
+      "link": "https://github.com/x10power/ffmq-rando-tracker/releases/download/1.0.0.64/ffmq-rando-tracker.zip",
+      "uid": "ffmq_pack_x10power",
+      "version": "1.0.0.64"
     }
   ]
 }
