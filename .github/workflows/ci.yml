@@ -1,8 +1,16 @@
 # workflow name
-name: Deploy Pages
+name: 🌎->🚀Deploy Pages
 
 # fire on
 on: [push, pull_request, workflow_dispatch]
+
+###########
+# actions #
+###########
+# actions/checkout@v3.3.0
+# actions/download-artifact@v3.0.2
+# actions/setup-python@v4.5.0
+# actions/upload-artifact@v3.1.2
 
 # stuff to do
 jobs:
@@ -21,34 +29,49 @@ jobs:
 
     steps:
       # checkout commit
-      - name: Checkout commit
-        uses: actions/checkout@v2
+      - name: ✔️Checkout commit
+        uses: actions/checkout@v3.3.0
       # install python
-      - name: Install Python
-        uses: actions/setup-python@v2
+      - name: 💿Install Python
+        uses: actions/setup-python@v4.5.0
         with:
           python-version: ${{ matrix.python-version }}
           architecture: "x64"
-      - run: |
+      # python version
+      - name: 🐍Python Version
+        shell: bash
+        run: |
           python --version
+      # Install python modules
+      - name: 💿Install Modules
+        shell: bash
+        run: |
+          python -m pip install -r "./resources/app/meta/manifests/pip_requirements.txt"
+      # Analyze used GitHub Actions
+      - name: Analyze used GitHub Actions
+        shell: bash
+        run: |
+          python ./resources/ci/common/list_actions.py
       # Prepare Repository
-      - name: Prepare Repository
+      - name: 🌎->📦Prepare Repository
+        shell: bash
         run: |
           python ./resources/ci/common/prepare_repository.py
       # Cleanup Workspace
-      - name: Cleanup Workspace
+      - name: 🧹Cleanup Workspace
+        shell: bash
         run: |
           python ./resources/ci/common/cleanup.py
       # upload pages artifact for later step
-      - name: Upload Pages Artifact
-        uses: actions/upload-artifact@v2
+      - name: 🔼Upload Pages Artifact
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: pages-${{ matrix.os-name }}
           path: ./
 
   # Install/Publish Pages
   install-publish-pages:
-    name: Publish Pages
+    name: 🌎->🚀Publish Pages
     runs-on: ${{ matrix.os-name }}
     needs: [ install-process-repository ]
 
@@ -62,33 +85,37 @@ jobs:
 
     steps:
       # checkout gh-pages
-      - name: Checkout commit
-        uses: actions/checkout@v2
+      - name: ✔️Checkout commit
+        uses: actions/checkout@v3.3.0
         with:
           ref: gh-pages
       # download pages artifact
-      - name: Download Pages Artifact
-        uses: actions/download-artifact@v2
+      - name: 🔽Download Pages Artifact
+        uses: actions/download-artifact@v3.0.2
         with:
           name: pages-${{ matrix.os-name }}
           path: ./
       # Prepare for GH-Pages
-      - name: Prepare for GH-Pages
+      - name: 📝Prepare for GH-Pages
+        shell: bash
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
       # List Differences
-      - name: List Differences
+      - name: ➖List Differences
+        shell: bash
         run: |
           git diff --name-status --cached
       # Set Commit
-      - name: Set Commit
+      - name: ➕Set Commit
+        shell: bash
         run: |
           git commit -q -F commit.txt || echo ""
           git log || echo "Failed to print Git Log"
       # Push to GH-Pages
-      - name: Push to GH-Pages (PUBLISH)
+      - name: 🚀Push to GH-Pages (PUBLISH)
+        shell: bash
         run: |
           git push || echo "Failed to push to GitHub Pages"
         if: contains(github.ref, 'publish')
