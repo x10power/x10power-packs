@@ -2,5 +2,5 @@ Updating Repository:
 
 Name: Final Fantasy Mystic Quest Randomizer Item Tracker
 By:   x10power, Minnie A. Trethewey, Poolsharker
-URL:  https://raw.githubusercontent.com/x10power/ffmq-rando-tracker/main/manifest.json
-ZIP:  https://github.com/x10power/ffmq-rando-tracker/releases/download/v1.0.109/ffmq_pack_x10power.zip
+URL:  https://raw.githubusercontent.com/x10power/ffmq_pack_x10power/main/manifest.json
+ZIP:  https://github.com/x10power/ffmq_pack_x10power/releases/download/v1.0.109/ffmq_pack_x10power.zip
