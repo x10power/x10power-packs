@@ -72,6 +72,7 @@ def prepare_repository():
                             context=context
                         ) as apiReq:
                             apiRes = json.loads(apiReq.read().decode("utf-8"))
+                            flags = list()
 
                             #   get asset url
                             #   set link for package as asset url
@@ -96,6 +97,9 @@ def prepare_repository():
                                 del variant["display_name"]
                                 newVariant.update(variant)
                                 newVariants.append(newVariant)
+                                if "flags" in newVariant:
+                                    flags = [*flags, *newVariant["flags"]]
+                            packageJSON["flags"] = list(set(flags))
                             packageJSON["variants"] = newVariants
 
                             toWrite.append(f"Tag Name: {apiRes['tag_name']}")

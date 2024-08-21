@@ -2,21 +2,21 @@
 name: 🌎->🚀Deploy Pages
 
 # fire on
-on: [push, pull_request, workflow_dispatch]
+on: [push, pull_request, workflow_call, workflow_dispatch]
 
 ###########
 # actions #
 ###########
 # actions/checkout@v3.3.0
-# actions/download-artifact@v3.0.2
-# actions/setup-python@v4.5.0
-# actions/upload-artifact@v3.1.2
+# actions/download-artifact@v4.1.8
+# actions/setup-python@v5.1.1
+# actions/upload-artifact@v4.3.6
 
 # stuff to do
 jobs:
   # Install/Process Repository
   install-process-repository:
-    name: Process Repository
+    name: 🌎Process Repository
     runs-on: ${{ matrix.os-name }}
 
     # VM settings
@@ -25,15 +25,15 @@ jobs:
       matrix:
         # pages on one OS
         os-name: [ubuntu-latest]
-        python-version: [3.8]
+        python-version: ["3.12"]
 
     steps:
       # checkout commit
       - name: ✔️Checkout commit
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v4.1.7
       # install python
       - name: 💿Install Python
-        uses: actions/setup-python@v4.5.0
+        uses: actions/setup-python@v5.1.1
         with:
           python-version: ${{ matrix.python-version }}
           architecture: "x64"
@@ -64,10 +64,16 @@ jobs:
           python ./resources/ci/common/cleanup.py
       # upload pages artifact for later step
       - name: 🔼Upload Pages Artifact
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@v4.3.6
         with:
           name: pages-${{ matrix.os-name }}
           path: ./
+      # upload repository artifact for debugging
+      - name: 🔼Upload Repository Artifact
+        uses: actions/upload-artifact@v4.3.6
+        with:
+          name: repository-${{ matrix.os-name }}
+          path: ./repository.json
 
   # Install/Publish Pages
   install-publish-pages:
@@ -81,22 +87,22 @@ jobs:
       matrix:
         # pages on one OS
         os-name: [ubuntu-latest]
-        python-version: [3.8]
+        python-version: ["3.12"]
 
     steps:
       # checkout gh-pages
       - name: ✔️Checkout commit
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v4.1.7
         with:
           ref: gh-pages
       # download pages artifact
       - name: 🔽Download Pages Artifact
-        uses: actions/download-artifact@v3.0.2
+        uses: actions/download-artifact@v4.1.8
         with:
           name: pages-${{ matrix.os-name }}
           path: ./
       # Prepare for GH-Pages
-      - name: 📝Prepare for GH-Pages
+      - name: 📝Prepare actor for GH-Pages
         shell: bash
         run: |
           git config user.name github-actions
