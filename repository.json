@@ -7,8 +7,8 @@
       "game_name": "Final Fantasy Mystic Quest",
       "flags": [
         "map",
-        "chathud",
-        "pins"
+        "pins",
+        "chathud"
       ],
       "platform": "snes",
       "documentation_url": "https://github.com/x10power/ffmq_pack_x10power/wiki",
