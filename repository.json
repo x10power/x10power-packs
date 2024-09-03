@@ -6,8 +6,8 @@
       "author": "x10power, Minnie A. Trethewey, Poolsharker",
       "game_name": "Final Fantasy Mystic Quest",
       "flags": [
-        "map",
         "chathud",
+        "map",
         "pins"
       ],
       "platform": "snes",
