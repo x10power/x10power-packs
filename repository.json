@@ -6,9 +6,9 @@
       "author": "x10power, Minnie A. Trethewey, Poolsharker",
       "game_name": "Final Fantasy Mystic Quest",
       "flags": [
+        "pins",
         "map",
-        "chathud",
-        "pins"
+        "chathud"
       ],
       "platform": "snes",
       "documentation_url": "https://github.com/x10power/ffmq_pack_x10power/wiki",
@@ -48,9 +48,9 @@
           ]
         }
       ],
-      "link": "https://github.com/x10power/ffmq_pack_x10power/releases/download/v1.2.244/ffmq_pack_x10power.zip",
+      "link": "https://github.com/x10power/ffmq_pack_x10power/releases/download/v1.2.260/ffmq_pack_x10power.zip",
       "uid": "ffmq_pack_x10power",
-      "version": "1.2.244"
+      "version": "1.2.260"
     }
   ]
 }
