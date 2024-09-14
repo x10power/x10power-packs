@@ -6,9 +6,9 @@
       "author": "x10power, Minnie A. Trethewey, Poolsharker",
       "game_name": "Final Fantasy Mystic Quest",
       "flags": [
-        "chathud",
         "pins",
-        "map"
+        "map",
+        "chathud"
       ],
       "platform": "snes",
       "documentation_url": "https://github.com/x10power/ffmq_pack_x10power/wiki",
@@ -45,6 +45,14 @@
           "name": "Simple",
           "flags": [
             "chathud"
+          ]
+        },
+        {
+          "name": "Simple with Map",
+          "flags": [
+            "chathud",
+            "map",
+            "pins"
           ]
         }
       ],
